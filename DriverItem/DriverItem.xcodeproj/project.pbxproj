@@ -20,8 +20,6 @@
 		9918BC901E5C603800C13E79 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9918BC8F1E5C603800C13E79 /* CoreLocation.framework */; };
 		991A63971E66D38B0060998C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 991A63961E66D38B0060998C /* libsqlite3.tbd */; };
 		991A63991E66D4310060998C /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991A63981E66D4310060998C /* UMMobClick.framework */; };
-		991A639F1E66F9FC0060998C /* libGeTuiSdk-1.5.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 991A639D1E66F9FC0060998C /* libGeTuiSdk-1.5.3.a */; };
-		991A63A01E66F9FC0060998C /* libGtExtensionSdk-1.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 991A639E1E66F9FC0060998C /* libGtExtensionSdk-1.0.0.a */; };
 		991A63A21E66FA900060998C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991A63A11E66FA900060998C /* MobileCoreServices.framework */; };
 		991A63A41E66FA9B0060998C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991A63A31E66FA9B0060998C /* SystemConfiguration.framework */; };
 		991A63A61E66FAC80060998C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 991A63A51E66FAC80060998C /* AVFoundation.framework */; };
@@ -91,10 +89,6 @@
 		9918BC8F1E5C603800C13E79 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		991A63961E66D38B0060998C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		991A63981E66D4310060998C /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMMobClick.framework; path = DriverItem/UMMobClick.framework; sourceTree = "<group>"; };
-		991A639B1E66F9FC0060998C /* GeTuiExtSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiExtSdk.h; sourceTree = "<group>"; };
-		991A639C1E66F9FC0060998C /* GeTuiSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiSdk.h; sourceTree = "<group>"; };
-		991A639D1E66F9FC0060998C /* libGeTuiSdk-1.5.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGeTuiSdk-1.5.3.a"; sourceTree = "<group>"; };
-		991A639E1E66F9FC0060998C /* libGtExtensionSdk-1.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGtExtensionSdk-1.0.0.a"; sourceTree = "<group>"; };
 		991A63A11E66FA900060998C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		991A63A31E66FA9B0060998C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		991A63A51E66FAC80060998C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -171,8 +165,6 @@
 				9917B2311E5EB26C00419D09 /* libz.tbd in Frameworks */,
 				9917B22D1E5EB24E00419D09 /* libc++.tbd in Frameworks */,
 				9917B21F1E5EABE800419D09 /* MessageUI.framework in Frameworks */,
-				991A639F1E66F9FC0060998C /* libGeTuiSdk-1.5.3.a in Frameworks */,
-				991A63A01E66F9FC0060998C /* libGtExtensionSdk-1.0.0.a in Frameworks */,
 				9917B2291E5EB1F500419D09 /* libWeChatSDK.a in Frameworks */,
 				9918BC901E5C603800C13E79 /* CoreLocation.framework in Frameworks */,
 				9942BDBF1E48B6A100D10F15 /* AdSupport.framework in Frameworks */,
@@ -207,17 +199,6 @@
 				9917B2281E5EB1F500419D09 /* WXApiObject.h */,
 			);
 			path = WeChatSDK;
-			sourceTree = "<group>";
-		};
-		991A639A1E66F9FC0060998C /* GtSdkLib */ = {
-			isa = PBXGroup;
-			children = (
-				991A639B1E66F9FC0060998C /* GeTuiExtSdk.h */,
-				991A639C1E66F9FC0060998C /* GeTuiSdk.h */,
-				991A639D1E66F9FC0060998C /* libGeTuiSdk-1.5.3.a */,
-				991A639E1E66F9FC0060998C /* libGtExtensionSdk-1.0.0.a */,
-			);
-			path = GtSdkLib;
 			sourceTree = "<group>";
 		};
 		9942BDA61E48963A00D10F15 /* MBProgressHUD */ = {
@@ -318,7 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				991A63A91E66FB3C0060998C /* DriverItem.entitlements */,
-				991A639A1E66F9FC0060998C /* GtSdkLib */,
 				9917B2221E5EB1F500419D09 /* WeChatSDK */,
 				9966DD1D1E4B55C70071B5D9 /* AFNetworking3.0.1 */,
 				9942BDB11E48AE5100D10F15 /* GWReachability */,
