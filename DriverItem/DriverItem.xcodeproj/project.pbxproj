@@ -51,6 +51,8 @@
 		99CA78F51E30EBF400F5A298 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99CA78F31E30EBF400F5A298 /* LaunchScreen.storyboard */; };
 		99CA79001E30EBF400F5A298 /* DriverItemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CA78FF1E30EBF400F5A298 /* DriverItemTests.m */; };
 		99CA790B1E30EBF400F5A298 /* DriverItemUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CA790A1E30EBF400F5A298 /* DriverItemUITests.m */; };
+		99DB12C71EE7E4F800792A0B /* libGeTuiSdk-1.6.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DB12C51EE7E4F800792A0B /* libGeTuiSdk-1.6.3.0.a */; };
+		99DB12C81EE7E4F800792A0B /* libGtExtensionSdk-1.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DB12C61EE7E4F800792A0B /* libGtExtensionSdk-1.2.0.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +147,10 @@
 		99CA79061E30EBF400F5A298 /* DriverItemUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DriverItemUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		99CA790A1E30EBF400F5A298 /* DriverItemUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DriverItemUITests.m; sourceTree = "<group>"; };
 		99CA790C1E30EBF400F5A298 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99DB12C31EE7E4F800792A0B /* GeTuiExtSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiExtSdk.h; sourceTree = "<group>"; };
+		99DB12C41EE7E4F800792A0B /* GeTuiSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiSdk.h; sourceTree = "<group>"; };
+		99DB12C51EE7E4F800792A0B /* libGeTuiSdk-1.6.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGeTuiSdk-1.6.3.0.a"; sourceTree = "<group>"; };
+		99DB12C61EE7E4F800792A0B /* libGtExtensionSdk-1.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGtExtensionSdk-1.2.0.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +161,7 @@
 				991A63A81E66FB0E0060998C /* UserNotifications.framework in Frameworks */,
 				9917B2211E5EAC6400419D09 /* JavaScriptCore.framework in Frameworks */,
 				991A63A61E66FAC80060998C /* AVFoundation.framework in Frameworks */,
+				99DB12C81EE7E4F800792A0B /* libGtExtensionSdk-1.2.0.a in Frameworks */,
 				9942BDBA1E48B44D00D10F15 /* CoreTelephony.framework in Frameworks */,
 				991A63A41E66FA9B0060998C /* SystemConfiguration.framework in Frameworks */,
 				991A63A21E66FA900060998C /* MobileCoreServices.framework in Frameworks */,
@@ -165,6 +172,7 @@
 				9917B2311E5EB26C00419D09 /* libz.tbd in Frameworks */,
 				9917B22D1E5EB24E00419D09 /* libc++.tbd in Frameworks */,
 				9917B21F1E5EABE800419D09 /* MessageUI.framework in Frameworks */,
+				99DB12C71EE7E4F800792A0B /* libGeTuiSdk-1.6.3.0.a in Frameworks */,
 				9917B2291E5EB1F500419D09 /* libWeChatSDK.a in Frameworks */,
 				9918BC901E5C603800C13E79 /* CoreLocation.framework in Frameworks */,
 				9942BDBF1E48B6A100D10F15 /* AdSupport.framework in Frameworks */,
@@ -299,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				991A63A91E66FB3C0060998C /* DriverItem.entitlements */,
+				99DB12C21EE7E4F800792A0B /* GtSdkLib */,
 				9917B2221E5EB1F500419D09 /* WeChatSDK */,
 				9966DD1D1E4B55C70071B5D9 /* AFNetworking3.0.1 */,
 				9942BDB11E48AE5100D10F15 /* GWReachability */,
@@ -354,6 +363,17 @@
 				99CA790C1E30EBF400F5A298 /* Info.plist */,
 			);
 			path = DriverItemUITests;
+			sourceTree = "<group>";
+		};
+		99DB12C21EE7E4F800792A0B /* GtSdkLib */ = {
+			isa = PBXGroup;
+			children = (
+				99DB12C31EE7E4F800792A0B /* GeTuiExtSdk.h */,
+				99DB12C41EE7E4F800792A0B /* GeTuiSdk.h */,
+				99DB12C51EE7E4F800792A0B /* libGeTuiSdk-1.6.3.0.a */,
+				99DB12C61EE7E4F800792A0B /* libGtExtensionSdk-1.2.0.a */,
+			);
+			path = GtSdkLib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
