@@ -54,6 +54,8 @@
     self.currentUrl = url;
     self.currentKey = key;
     
+    self.currentThread = [NSThread currentThread];
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         
         UIActionSheet *pActionSheet = [[UIActionSheet alloc] initWithTitle:@"您要选择?"
@@ -153,7 +155,7 @@
         
         NSLog(@"上传成功");
         [weakself stopLoading];
-        [self progressHUD].labelText = @"加载中...";
+        [weakself progressHUD].labelText = @"加载中...";
         
         
         NSHTTPURLResponse * taskresponse =(NSHTTPURLResponse *) task.response;
@@ -162,21 +164,32 @@
         if ((long)taskresponse.statusCode == 200)
         {
             NSDictionary *dic = (NSDictionary * )responseObject;
-            NSString *keyValue = [self changeStringJsonModel:dic];
+            NSString *keyValue = [weakself changeStringJsonModel:dic];
             
-            JSValue *squareFunc = self.context[self.currentCallBackFun];
-            [squareFunc callWithArguments:@[self.currentKey,keyValue]];
+            
+            [weakself performSelector:@selector(jsCallFuction:)
+                             onThread:weakself.currentThread
+                           withObject:keyValue
+                        waitUntilDone:NO];
+            
         }
         
     } failure:^(NSURLSessionDataTask *_Nullable task, NSError * _Nonnull error) {
         
         NSLog(@"上传失败");
         [weakself stopLoading];
-        [self progressHUD].labelText = @"加载中...";
+        [weakself progressHUD].labelText = @"加载中...";
         
     }];
     
 }
+
+- (void)jsCallFuction:(NSString *)keyValue
+{
+    JSValue *squareFunc = self.context[self.currentCallBackFun];
+    [squareFunc callWithArguments:@[self.currentKey,keyValue]];
+}
+
 
 // 字典转字符串
 - (NSString *)changeStringJsonModel:(NSDictionary *)dictModel

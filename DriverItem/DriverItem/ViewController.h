@@ -37,6 +37,9 @@
 
 @property (nonatomic,strong) CLLocationManager *locationManager;
 
+@property (nonatomic,strong) NSThread *currentThread;  // webview's thread
+
+
 /***  appDelegate 里面 call ****/
 - (void)shareCallBackFun:(NSInteger)rspCode withMsg:(NSString *)msg;
 - (void)refreshWebview;
