@@ -18,22 +18,39 @@
             background-color: #d4edda;
             color: #155724;
         }
+
+        label {
+        display: inline-block;
+        width: 120px; /* 调整宽度以适应更大的输入框 */
+        line-height: 36px; /* 增加行高以匹配较大的输入框 */
+       }
         .error {
             background-color: #f8d7da;
             color: #721c24;
         }
+      input[type="text"] {
+        width: 300px; /* 增大输入框宽度 */
+        padding: 10px; /* 增大内边距让输入框看起来更大 */
+        font-size: 18px; /* 增大字体大小 */
+      }
+      input[type="submit"] {
+        margin-top: 20px; /* 增加顶部外边距 */
+        padding: 10px 20px; /* 增大按钮内边距 */
+        font-size: 18px; /* 增大字体大小 */
+        cursor: pointer; /* 改变鼠标悬停样式为手型 */
+      }
     </style>
 </head>
 
 <body>
 
-<h1>老城一幼录取信息查询</h1>
+<h1>老城一幼录取结果</h1>
 <form id="enrollForm">
-    <label for="name">姓名：</label>
-    <input type="text" id="name" name="name" required><br><br>
+    <label for="name">学生姓名：</label>
+    <input type="text" id="name" name="name" placeholder="请输入姓名" required><br><br>
 
-    <label for="card">身份证号码：</label>
-    <input type="text" id="card" name="card" pattern="\d{17}[\dXx]" title="请输入有效的18位身份证号码" required><br><br>
+    <label for="card">身份证号：</label>
+    <input type="text" id="card" name="card" pattern="\d{17}[\dXx]" placeholder="请输入18位身份证号" title="请输入有效的18位身份证号码" required><br><br>
 
     <input type="submit" value="查询">
 </form>
