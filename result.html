@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>录取信息查询</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>老城一幼录取信息查询</h1>
+<form id="enrollForm">
+    <label for="name">姓名：</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="card">身份证号码：</label>
+    <input type="text" id="card" name="card" pattern="\d{17}[\dXx]" title="请输入有效的18位身份证号码" required><br><br>
+
+    <input type="submit" value="查询">
+</form>
+
+<div id="result" class="result" style="display:none;"></div>
+
+<script>
+
+
+    var enrollData = [];
+
+     // 密钥（对于生产环境，请确保安全地生成和存储密钥）
+    const key = "simple-key-12345"; // 注意：这个长度不符合AES标准，仅作演示
+
+    // 使用 Crypto API 进行简单的加密和解密
+    async function generateKey() {
+        return await crypto.subtle.importKey(
+            "raw",
+            new TextEncoder().encode(key),
+            { name: "AES-CBC" },
+            false,
+            ["encrypt", "decrypt"]
+        );
+    }
+
+     async function decryptData() {
+       const encryptedDataBase64 = "GjxbocyaOeWeKs/P3iIl5vr+NzOsh2eU/s7Q83xHlLLrBeu6nFyOWug0RI8iHIYI68LYuglS6pDc9bH3wF5xhEWuujQl/7KDhHx6rxJKKjMHvox3cdMWHJw2ZKAGdrM+sGo4AyMavQWm9J8ssxYkl71y3ILqscwFGGPD35snpnzY2ofwcGApYLn8SKMExJOflxvZzkdeF9IxkyxW/Z/CMynXA3fwRxT4oYAG5rEdeHYCOr0EVoYEYTLFybrdyp0hS7qJKnihZj1oHYPWi5O59/FJLxeGhAIYCIgvSavKhvudAB2niDFImpeFf1Nqt3I/";
+
+        const ivBase64 = "M+MGo8gWuNXOOcsFzYb0wA==";
+
+        const encryptedData = new Uint8Array(atob(encryptedDataBase64).split("").map(c => c.charCodeAt(0)));
+        const iv = new Uint8Array(atob(ivBase64).split("").map(c => c.charCodeAt(0)));
+
+        const cryptoKey = await generateKey();
+        const decrypted = await crypto.subtle.decrypt(
+            {
+                name: "AES-CBC",
+                iv: iv
+            },
+            cryptoKey,
+            encryptedData
+        );
+
+        const decoder = new TextDecoder();
+        enrollData = JSON.parse(decoder.decode(decrypted));
+    }
+
+    // 页面加载时加密 enrollData
+    window.onload = async () => {
+        encryptedEnrollDataBase64 = await decryptData();
+    };
+
+
+    document.getElementById("enrollForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // 阻止默认提交行为
+
+
+        
+
+        // 获取用户输入
+        const nameInput = document.getElementById("name").value.trim();
+        const cardInput = document.getElementById("card").value.trim();
+
+        // 查找是否匹配
+        const match = enrollData.find(item => item.name === nameInput && item.card === cardInput);
+
+        const resultDiv = document.getElementById("result");
+        resultDiv.style.display = "block";
+
+        if (match) {
+            resultDiv.className = "result success";
+            resultDiv.innerHTML = `✅ 恭喜！您已录取，姓名：${match.name}，身份证号：${match.card}`;
+        } else {
+            resultDiv.className = "result error";
+            resultDiv.innerHTML = "❌ 未找到匹配的录取信息，请检查姓名或身份证号码是否正确。";
+        }
+    });
+</script>
+
+</body>
+</html>
